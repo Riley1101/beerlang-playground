@@ -15,14 +15,16 @@
 	});
 </script>
 
-<AppShell>
+<AppShell class="w-full h-screen">
 	<svelte:fragment slot="sidebarLeft">
 		<Sidebar bind:currentTile={currentTab} />
 	</svelte:fragment>
-	<div class="grid grid-cols-[70%_30%] h-full">
-		{#if currentTab == 'editor'}
+	{#if currentTab == 'editor'}
+		<div class="scroll-y">
 			<Editor />
-			<Result />
-		{/if}
-	</div>
+		</div>
+	{/if}
+	<svelte:fragment slot="sidebarRight">
+		<Result />
+	</svelte:fragment>
 </AppShell>

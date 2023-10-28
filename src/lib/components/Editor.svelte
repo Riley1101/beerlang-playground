@@ -41,7 +41,7 @@
 	});
 </script>
 
-<div>
+<div class="max-h-full">
 	<div bind:this={container} class="card rounded-md bg-transparent" />
 </div>
 
