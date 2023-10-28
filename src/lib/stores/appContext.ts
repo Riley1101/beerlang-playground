@@ -14,7 +14,6 @@ function contextStore() {
     });
 
     function toggleVimMode() {
-        console.log('hello');
         update((store) => {
             store.vimMode = !store.vimMode;
             return store;
