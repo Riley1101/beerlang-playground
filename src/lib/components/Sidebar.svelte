@@ -5,9 +5,10 @@
 	const { toggleVimMode, subscribe } = appContext;
 
 	export let currentTile = 'editor';
-	let vim = false;
+	let vimMode = false;
 	subscribe((value) => {
 		currentTile = value.tab;
+		vimMode = value.vimMode;
 	});
 </script>
 
@@ -30,11 +31,11 @@
 		<span>Examples</span>
 	</AppRailTile>
 	<svelte:fragment slot="trail">
-		<AppRailTile group={vim} name="vim" value={'vim'} title="Toggle" on:click={toggleVimMode}>
+		<AppRailAnchor selected={!vimMode} on:click={toggleVimMode}>
 			<svelte:fragment slot="lead">
-				<iconify-icon icon="ph:folder" class="text-2xl" />
+				<iconify-icon icon="cib:vim" class="text-2xl" />
 			</svelte:fragment>
-			<span>Vim</span>
-		</AppRailTile>
+			{!vimMode ? 'ON' : 'OFF'}
+		</AppRailAnchor>
 	</svelte:fragment>
 </AppRail>

@@ -16,7 +16,7 @@
 	let container: HTMLDivElement;
 	let view: EditorView;
 
-	export let vimMode = true;
+	export let vimMode = false;
 
 	subscribe((ctx) => {
 		vimMode = ctx.vimMode;
@@ -24,7 +24,7 @@
 	$: text = state.doc.toString();
 	$: {
 		if (view) {
-			!vimMode ? extensions.push(vim()) : extensions.pop();
+			vimMode ? extensions.pop() : extensions.push(vim());
 			view.setState(
 				EditorState.create({
 					doc: text,
