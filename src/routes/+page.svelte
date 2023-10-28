@@ -6,13 +6,11 @@
 	import { appContext } from '$lib/stores/appContext';
 
 	let currentTab = 'editor';
-	let vimMode = false;
 
 	let { subscribe } = appContext;
 
 	subscribe((value) => {
 		currentTab = value.tab;
-		value.vimMode ? (vimMode = true) : (vimMode = false);
 	});
 </script>
 

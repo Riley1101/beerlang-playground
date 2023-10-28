@@ -4,7 +4,6 @@
 	import { appContext } from '$lib/stores/appContext';
 	const { toggleVimMode, subscribe } = appContext;
 	export let currentTile = 'editor';
-	let vimMode = false;
 	subscribe((value) => {
 		currentTile = value.tab;
 	});
@@ -29,7 +28,7 @@
 		<span>Examples</span>
 	</AppRailTile>
 	<svelte:fragment slot="trail">
-		<AppRailTile bind:group={currentTile} name="tile-2" value={'editor'} title="Toggle">
+		<AppRailTile bind:group={currentTile} name="vim" value={'vim'} title="Toggle">
 			<svelte:fragment slot="lead">
 				<iconify-icon icon="ph:folder" class="text-2xl" onclick={toggleVimMode} />
 			</svelte:fragment>
