@@ -1,15 +1,11 @@
 <script>
 	import { AppRail, AppRailTile, AppRailAnchor } from '@skeletonlabs/skeleton';
 
-	import { appContext } from '$lib/stores/appContext';
-	const { toggleVimMode, subscribe } = appContext;
-
+	import { editorStore } from '$lib/stores/appContext';
+	const { toggleVimMode, store } = editorStore;
 	export let currentTile = 'editor';
-	let vimMode = false;
-	subscribe((value) => {
-		currentTile = value.tab;
-		vimMode = value.vimMode;
-	});
+	$: vimMode = $store.vimMode;
+	$: currentTile = $store.tab;
 </script>
 
 <AppRail class={'h-screen'}>

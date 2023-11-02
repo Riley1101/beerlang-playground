@@ -4,18 +4,16 @@
 	import Result from '$lib/components/Result.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import { AppShell } from '@skeletonlabs/skeleton';
-	import { appContext } from '$lib/stores/appContext';
+	import { editorStore } from '$lib/stores/appContext';
 
 	let currentTab = 'editor';
 
-	let { subscribe } = appContext;
+	let { store } = editorStore;
 
-	subscribe((value) => {
-		currentTab = value.tab;
-	});
+	console.log(store);
 </script>
 
-<AppShell class="w-full h-screen">
+<AppShell class="w-full h-screen" slotSidebarRight="w-1/3">
 	<svelte:fragment slot="sidebarLeft">
 		<Sidebar bind:currentTile={currentTab} />
 	</svelte:fragment>
